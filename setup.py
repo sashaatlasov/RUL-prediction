@@ -6,7 +6,7 @@ setup(
     packages=find_packages(),
     author="Alexander Atlasov",
     author_email="aaatlasov@edu.hse.ru",
-    url="https://github.com/sashaatlasov/RUL_Prediction",
+    url="https://github.com/sashaatlasov/RUL-Prediction",
     # install_requires=[
     #     "torch",
     #     "numpy",

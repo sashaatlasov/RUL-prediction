@@ -12,10 +12,12 @@ class RULpredictor(nn.Module):
                  num_timesteps=100
     ):
         super().__init__()
+
+        self.transformer = DAST(time_step=window_size + 2, 
+                                input_size=14, dec_seq_len=4)
         
-        self.transformer = DAST(window_size + 2, 14, 4)
-        
-        self.eps_theta = ConditionalGuidedModel()
+        self.eps_theta = ConditionalGuidedModel(num_timesteps=num_timesteps, 
+                                                data_dim=dec_seq_len * self.transformer.dim_val)
         
         self.diffusion = DiffusionModel(self.eps_theta, betas=betas, num_timesteps=num_timesteps)
     
@@ -46,6 +48,13 @@ class RULpredictor(nn.Module):
         ----------
         sensors
             (batch_size, window_size, input_size)  
+        num_traj
+            number of predictive samples, by default 100
+            
+        Returns
+        -------
+        samples
+            (batch_size, num_traj, 1, 1)
         """
         
         def repeat(tensor, dim=0):

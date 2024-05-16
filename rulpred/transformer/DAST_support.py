@@ -70,6 +70,7 @@ class DAST(torch.nn.Module):
         
         super(DAST, self).__init__()
         self.dec_seq_len = dec_seq_len
+        self.dim_val = dim_val
         self.dropout = nn.Dropout(dropout)
         
         #Initiate Sensors encoder

@@ -9,7 +9,7 @@ The proposed approach uses a diffusion model to solve the regression problem, wh
 # Installation
 
 ```
-!pip install git+https://github.com/sashaatlasov/RUL_Prediction.git
+!pip install git+https://github.com/sashaatlasov/RUL-Prediction.git
 ```
 
 # Quick start 

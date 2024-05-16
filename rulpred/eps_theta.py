@@ -19,10 +19,10 @@ class ConditionalLinear(nn.Module):
     
 
 class ConditionalGuidedModel(nn.Module):
-    def __init__(self, hidden_dim=128):
+    def __init__(self, num_timesteps, data_dim, hidden_dim=128):
         super(ConditionalGuidedModel, self).__init__()
-        n_steps = 100 + 1
-        data_dim = 256 + 1
+        n_steps = num_timesteps + 1
+        data_dim = data_dim + 1
         self.lin1 = ConditionalLinear(data_dim, hidden_dim, n_steps)
         self.lin2 = ConditionalLinear(hidden_dim, hidden_dim, n_steps)
         self.lin3 = ConditionalLinear(hidden_dim, hidden_dim, n_steps)
