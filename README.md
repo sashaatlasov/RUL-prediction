@@ -44,11 +44,11 @@ The experiments were performed on datasets from the set. Below are the metrics f
 
 Comparison of trajectories for DAST and RULpredictor on F001 dataset (random units).
 
-![png](https://github.com/sashaatlasov/RUL_Prediction/blob/main/example/pictures/F001_unit10.png)
+![png](https://github.com/sashaatlasov/RUL-prediction/blob/main/example/pictures/F001_unit10.png)
 
-![png](https://github.com/sashaatlasov/RUL_Prediction/blob/main/example/pictures/F001_unit8.png)
+![png](https://github.com/sashaatlasov/RUL-prediction/blob/main/example/pictures/F001_unit8.png)
 
-![png](https://github.com/sashaatlasov/RUL_Prediction/blob/main/example/pictures/F001_unit24.png)
+![png](https://github.com/sashaatlasov/RUL-prediction/blob/main/example/pictures/F001_unit24.png)
 
-![png](https://github.com/sashaatlasov/RUL_Prediction/blob/main/example/pictures/F001_unit99.png)
+![png](https://github.com/sashaatlasov/RUL-prediction/blob/main/example/pictures/F001_unit99.png)
 
