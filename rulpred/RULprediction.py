@@ -19,7 +19,7 @@ class RULpredictor(nn.Module):
                                 input_size=14, dec_seq_len=4)
         
         self.eps_theta = ConditionalGuidedModel(num_timesteps=num_timesteps, 
-                                                data_dim=dec_seq_len * self.transformer.dim_val)
+                                                data_dim=self.transformer.dec_seq_len * self.transformer.dim_val)
         
         self.diffusion = DiffusionModel(self.eps_theta, betas=betas, num_timesteps=num_timesteps)
     
