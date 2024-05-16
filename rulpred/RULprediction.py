@@ -9,9 +9,11 @@ class RULpredictor(nn.Module):
     def __init__(self,
                  window_size,
                  betas=(1e-4, 0.02),
-                 num_timesteps=100
+                 num_timesteps=100, 
+                 rul_max=125
     ):
         super().__init__()
+        self.rul_max = rul_max
 
         self.transformer = DAST(time_step=window_size + 2, 
                                 input_size=14, dec_seq_len=4)
