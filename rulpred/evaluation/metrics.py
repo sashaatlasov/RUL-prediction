@@ -32,7 +32,7 @@ def score(y_pred, y):
     return sum1 + sum2
 
 
-def validate(model, dataloader, device):
+def calc_metrics(model, dataloader, device):
     model.eval()
     with torch.no_grad():
         se = None
