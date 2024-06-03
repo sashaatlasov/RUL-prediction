@@ -63,10 +63,10 @@ class DecoderLayer(torch.nn.Module):
         return x  
 
 class DAST(torch.nn.Module):
-    def __init__(self, time_step, input_size, dec_seq_len, 
+    def __init__(self, input_size=14, dec_seq_len=4, 
                 dim_val_s=64, dim_attn_s=64, dim_val_t=64, dim_attn_t=64, dim_val=64, dim_attn=64, 
                 n_decoder_layers = 1, n_encoder_layers = 2,
-                n_heads = 4, dropout = 0.2):
+                n_heads = 4, dropout = 0.2, time_step=42):
         
         super(DAST, self).__init__()
         self.dec_seq_len = dec_seq_len
