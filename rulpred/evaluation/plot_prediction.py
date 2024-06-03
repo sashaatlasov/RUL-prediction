@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def compare(unit_idx, model, dast, X_test):
+def compare(unit_idx, model, dast, X_test, y_test, masks):
     mask = np.where(masks == unit_idx)[0]
     X = torch.tensor(X_test[mask], dtype=torch.float32).squeeze(-1)
     y = y_test[mask]
@@ -12,8 +12,8 @@ def compare(unit_idx, model, dast, X_test):
     y_dast = dast(X).detach().numpy() * model.rul_max
     return y, y_mean, samples, y_dast
 
-def plot_traj(unit_idx, model, dast, X_test, save=False):
-    y, y_mean, samples, y_dast = compare(unit_idx, model, dast, X_test)
+def plot_traj(unit_idx, model, dast, X_test, y_test, masks, save=False):
+    y, y_mean, samples, y_dast = compare(unit_idx, model, dast, X_test, y_test, masks)
     y5 = np.squeeze(np.quantile(samples, 0.05, axis=1).reshape(-1, 1), -1)
     y95 = np.squeeze(np.quantile(samples, 0.95, axis=1).reshape(-1, 1), -1)
     
