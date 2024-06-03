@@ -1,5 +1,4 @@
 config = dict(
-    epochs=100,
     batch_size=256,
     learning_rate_start=1e-3,
     epochs=100,
