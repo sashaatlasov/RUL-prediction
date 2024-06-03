@@ -8,15 +8,29 @@ class RULpredictor(nn.Module):
     
     def __init__(self,
                  window_size,
-                 betas=(1e-4, 0.02),
-                 num_timesteps=100, 
-                 rul_max=125
+                 betas,
+                 num_timesteps, 
+                 rul_max, 
+                 input_size, 
+                 dec_seq_len, 
+                 dim_val_s, 
+                 dim_attn_s, 
+                 dim_val_t, 
+                 dim_attn_t,
+                 dim_val,
+                 dim_attn, 
+                 n_decoder_layers, 
+                 n_encoder_layers,
+                 n_heads, 
+                 dropout
     ):
         super().__init__()
         self.rul_max = rul_max
 
-        self.transformer = DAST(time_step=window_size + 2, 
-                                input_size=14, dec_seq_len=4)
+        self.transformer = DAST(time_step = window_size + 2, 
+                                input_size, dec_seq_len,
+                                dim_val_s, dim_attn_s, dim_val_t, dim_attn_t, dim_val, dim_attn, 
+                                n_decoder_layers, n_encoder_layers, n_heads, dropout)
         
         self.eps_theta = ConditionalGuidedModel(num_timesteps=num_timesteps, 
                                                 data_dim=self.transformer.dec_seq_len * self.transformer.dim_val)
