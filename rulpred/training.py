@@ -31,7 +31,7 @@ def validate(model, val_dataloader, device):
         for t, s in pbar:
             preds = model.sample(s)
             mean = preds.mean(dim=1)
-            loss = F.mse_loss(mean * model.rul_max, t * model.rul_max, reduction='none')
+            loss = F.mse_loss(mean.squeeze() * model.rul_max, t * model.rul_max, reduction='none')
             se = loss if se is None else torch.cat((se, loss), dim=0)
         mse = torch.mean(se)
         return torch.sqrt(mse)
